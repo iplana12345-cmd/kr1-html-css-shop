@@ -25,4 +25,4 @@
 Создана базовая структура проекта.
 
 ## Ссылка на опубликованный проект
-GitHub Pages: https://iplana12345-cmd.github.io/kr1-html-css-shop/
+GitHub Pages: https://iplana12345-cmd.github.io/frontend-project/

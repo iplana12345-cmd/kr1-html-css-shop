@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Учебный интернет-магазин. Многостраничный сайт, разработанный в рамках дисциплины «Фронтенд и бэкенд разработка».">
-  <title>Учебный интернет-магазин — Главная</title>
+  <title>Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -33,16 +32,7 @@
         В дальнейшем на её основе будет разработан многостраничный сайт
         интернет-магазина или каталога услуг.
       </p>
-      <a class="button" href="index.html#popular">Перейти к товарам</a>
-    </section>
-
-    <section class="section" id="about">
-      <h2>О проекте</h2>
-      <p>
-        В рамках данного проекта будет разработан многостраничный сайт
-        интернет-магазина или каталога услуг. Проект будет постепенно
-        расширяться на следующих практических занятиях.
-      </p>
+      <a class="button" href="#popular">Перейти к товарам</a>
     </section>
 
     <section class="section" id="advantages">
@@ -51,41 +41,38 @@
         <li>понятная HTML-структура;</li>
         <li>семантические блоки страницы;</li>
         <li>подключение внешнего CSS-файла;</li>
-        <li>подготовка к разработке многостраничного сайта;</li>
-        <li>модальное окно с формой заявки;</li>
-        <li>базовая валидация формы.</li>
+        <li>подготовка к разработке многостраничного сайта.</li>
       </ul>
     </section>
 
     <section class="section" id="popular">
       <h2>Популярные товары</h2>
-      
-      <article class="product-card">
-        <h3>Товар 1</h3>
-        <p>Краткое описание учебного товара.</p>
-        <p>Цена: 1000 руб.</p>
-        <button class="button product-card__button" type="button" data-product="Товар 1">
-          Заказать
-        </button>
-      </article>
-
-      <article class="product-card">
-        <h3>Товар 2</h3>
-        <p>Краткое описание учебного товара.</p>
-        <p>Цена: 1500 руб.</p>
-        <button class="button product-card__button" type="button" data-product="Товар 2">
-          Заказать
-        </button>
-      </article>
-
-      <article class="product-card">
-        <h3>Товар 3</h3>
-        <p>Краткое описание учебного товара.</p>
-        <p>Цена: 2000 руб.</p>
-        <button class="button product-card__button" type="button" data-product="Товар 3">
-          Заказать
-        </button>
-      </article>
+      <div class="products-grid">
+        <article class="product-card">
+          <h3>Товар 1</h3>
+          <p>Краткое описание учебного товара.</p>
+          <p>Цена: 1000 руб.</p>
+          <button class="button product-card__button" type="button" data-product="Товар 1">
+            Заказать
+          </button>
+        </article>
+        <article class="product-card">
+          <h3>Товар 2</h3>
+          <p>Краткое описание учебного товара.</p>
+          <p>Цена: 1500 руб.</p>
+          <button class="button product-card__button" type="button" data-product="Товар 2">
+            Заказать
+          </button>
+        </article>
+        <article class="product-card">
+          <h3>Товар 3</h3>
+          <p>Краткое описание учебного товара.</p>
+          <p>Цена: 2000 руб.</p>
+          <button class="button product-card__button" type="button" data-product="Товар 3">
+            Заказать
+          </button>
+        </article>
+      </div>
     </section>
 
     <aside class="aside-info">
@@ -99,24 +86,16 @@
   </main>
 
   <footer id="contacts">
-    <div class="footer-content">
-      <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-      <p>Дисциплина: Фронтенд и бэкенд разработка</p>
-      <p>Институт: ИПТИП, Кафедра индустриального программирования</p>
-    </div>
+    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
 
   <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
-    <div class="dialog-header">
-      <h2 id="order-dialog-title">Оформление заявки</h2>
-      <button class="dialog-close" type="button" id="close-order-dialog" aria-label="Закрыть модальное окно">&times;</button>
-    </div>
-    
+    <h2 id="order-dialog-title">Оформление заявки</h2>
     <form class="order-form" id="order-form" action="#" method="post" novalidate>
       <input id="selected-product" name="selected-product" type="hidden">
-      
       <div class="form-field">
-        <label for="order-name">Имя <span class="required">*</span></label>
+        <label for="order-name">Имя</label>
         <input
           id="order-name"
           name="name"
@@ -127,9 +106,8 @@
           required
         >
       </div>
-
       <div class="form-field">
-        <label for="order-email">E-mail <span class="required">*</span></label>
+        <label for="order-email">E-mail</label>
         <input
           id="order-email"
           name="email"
@@ -139,21 +117,19 @@
           required
         >
       </div>
-
       <div class="form-field">
-        <label for="order-phone">Телефон <span class="required">*</span></label>
+        <label for="order-phone">Телефон</label>
         <input
           id="order-phone"
           name="phone"
           type="tel"
           inputmode="tel"
           placeholder="+7 (900) 000-00-00"
-          pattern="^\+7\s?\(\d{3}\)\s?\d{3}-\d{2}-\d{2}$"
+          pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
           required
         >
-        <small class="field-hint">Формат: +7 (900) 000-00-00</small>
+        <small>Формат: +7 (900) 000-00-00</small>
       </div>
-
       <div class="form-field">
         <label for="order-date">Дата связи</label>
         <input
@@ -162,18 +138,15 @@
           type="date"
         >
       </div>
-
       <div class="form-field">
-        <label for="order-topic">Тема заявки <span class="required">*</span></label>
+        <label for="order-topic">Тема заявки</label>
         <select id="order-topic" name="topic" required>
           <option value="">Выберите тему</option>
           <option value="product">Заказ товара</option>
           <option value="consultation">Консультация</option>
           <option value="delivery">Доставка</option>
-          <option value="other">Другое</option>
         </select>
       </div>
-
       <div class="form-field">
         <label for="order-comment">Комментарий</label>
         <textarea
@@ -183,29 +156,26 @@
           placeholder="Укажите дополнительную информацию"
         ></textarea>
       </div>
-
       <div class="form-field form-field--checkbox">
-        <label class="checkbox-label">
+        <label>
           <input
             id="order-agreement"
             name="agreement"
             type="checkbox"
             required
           >
-          <span>Я согласен на обработку персональных данных <span class="required">*</span></span>
+          Я согласен на обработку данных
         </label>
       </div>
-
       <div class="form-actions">
-        <button class="button button--secondary" type="button" id="cancel-order-dialog">Отмена</button>
-        <button class="button button--primary" type="submit">Отправить заявку</button>
+        <button type="button" id="close-order-dialog">Закрыть</button>
+        <button type="submit">Отправить заявку</button>
       </div>
     </form>
   </dialog>
 
-  <div class="success-message" id="success-message" hidden>
-    <h3>✓ Форма успешно отправлена!</h3>
-    <p>Ваша заявка принята. Мы свяжемся с вами в ближайшее время.</p>
-  </div>
+  <p class="success-message" id="success-message" hidden>
+    Форма успешно отправлена!
+  </p>
 </body>
 </html>

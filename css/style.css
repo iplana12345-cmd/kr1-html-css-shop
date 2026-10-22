@@ -359,3 +359,19 @@ html {
   border-radius: var(--radius-sm);
   font: inherit;
 }
+/* ===============================
+   12. Фиксированная шапка
+   =============================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-surface);
+  box-shadow: 0 2px 4px var(--color-shadow);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-surface);
+}

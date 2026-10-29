@@ -62,3 +62,25 @@ orderForm.addEventListener('submit', (event) => {
   // Закрываем модальное окно.
   orderDialog.close();
 });
+
+// ===============================
+// Доработка: фиксированная кнопка «Наверх»
+// ===============================
+const scrollTopButton = document.getElementById('scroll-top-button');
+
+// Показываем/скрываем кнопку при прокрутке.
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollTopButton.hidden = false;
+  } else {
+    scrollTopButton.hidden = true;
+  }
+});
+
+// Прокручиваем наверх при клике.
+scrollTopButton.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});

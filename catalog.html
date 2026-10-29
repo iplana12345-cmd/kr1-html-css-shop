@@ -29,6 +29,9 @@
             <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
           </li>
           <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#faq">Вопросы</a>
+          </li>
+          <li class="site-nav__item">
             <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
           </li>
         </ul>
@@ -54,7 +57,7 @@
     <section class="catalog-layout">
       <aside class="catalog-filters">
         <h2>Фильтры</h2>
-        <form class="filters-form" action="#" method="get">
+        <form class="filters-form" action="#" method="get" aria-label="Фильтры каталога">
           <fieldset>
             <legend>Категория</legend>
             <label>
@@ -84,7 +87,15 @@
       <section class="catalog-products">
         <h2>Список товаров</h2>
         <div class="products-grid">
-          <article class="product-card">
+          <article class="product-card product-card--featured">
+            <img
+              class="product-card__image"
+              src="images/product-1.jpg"
+              alt="Товар 1 — краткое описание товара"
+              width="300"
+              height="200"
+              loading="lazy"
+            >
             <h3 class="product-card__title">Товар 1</h3>
             <p class="product-card__description">Краткое описание учебного товара.</p>
             <p class="product-card__price">Цена: 1000 руб.</p>
@@ -93,6 +104,14 @@
             </button>
           </article>
           <article class="product-card">
+            <img
+              class="product-card__image"
+              src="images/product-2.jpg"
+              alt="Товар 2 — краткое описание товара"
+              width="300"
+              height="200"
+              loading="lazy"
+            >
             <h3 class="product-card__title">Товар 2</h3>
             <p class="product-card__description">Краткое описание учебного товара.</p>
             <p class="product-card__price">Цена: 1500 руб.</p>
@@ -100,7 +119,16 @@
               Заказать
             </button>
           </article>
-          <article class="product-card">
+          <article class="product-card product-card--discount">
+            <span class="product-card__badge">Скидка</span>
+            <img
+              class="product-card__image"
+              src="images/product-3.jpg"
+              alt="Товар 3 со скидкой — краткое описание товара"
+              width="300"
+              height="200"
+              loading="lazy"
+            >
             <h3 class="product-card__title">Товар 3</h3>
             <p class="product-card__description">Краткое описание учебного товара.</p>
             <p class="product-card__price">Цена: 2000 руб.</p>
@@ -109,6 +137,14 @@
             </button>
           </article>
           <article class="product-card">
+            <img
+              class="product-card__image"
+              src="images/product-4.jpg"
+              alt="Товар 4 — краткое описание товара"
+              width="300"
+              height="200"
+              loading="lazy"
+            >
             <h3 class="product-card__title">Товар 4</h3>
             <p class="product-card__description">Краткое описание учебного товара.</p>
             <p class="product-card__price">Цена: 2500 руб.</p>
@@ -117,6 +153,14 @@
             </button>
           </article>
           <article class="product-card">
+            <img
+              class="product-card__image"
+              src="images/product-5.jpg"
+              alt="Товар 5 — краткое описание товара"
+              width="300"
+              height="200"
+              loading="lazy"
+            >
             <h3 class="product-card__title">Товар 5</h3>
             <p class="product-card__description">Краткое описание учебного товара.</p>
             <p class="product-card__price">Цена: 3000 руб.</p>
@@ -125,6 +169,14 @@
             </button>
           </article>
           <article class="product-card">
+            <img
+              class="product-card__image"
+              src="images/product-6.jpg"
+              alt="Товар 6 — краткое описание товара"
+              width="300"
+              height="200"
+              loading="lazy"
+            >
             <h3 class="product-card__title">Товар 6</h3>
             <p class="product-card__description">Краткое описание учебного товара.</p>
             <p class="product-card__price">Цена: 3500 руб.</p>
@@ -138,8 +190,21 @@
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    <div class="site-footer__inner">
+      <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    </div>
   </footer>
+
+  <!-- Кнопка «Наверх» -->
+  <button
+    class="scroll-top-button"
+    id="scroll-top-button"
+    type="button"
+    aria-label="Прокрутить страницу наверх"
+    hidden
+  >
+    ↑ Наверх
+  </button>
 </body>
 </html>

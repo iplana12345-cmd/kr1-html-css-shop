@@ -29,6 +29,9 @@
             <a class="site-nav__link" href="index.html#popular">Популярные товары</a>
           </li>
           <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html#faq">Вопросы</a>
+          </li>
+          <li class="site-nav__item">
             <a class="site-nav__link" href="index.html#contacts">Обратная связь</a>
           </li>
         </ul>
@@ -60,7 +63,15 @@
     <section class="section" id="popular">
       <h2>Популярные товары</h2>
       <div class="products-grid">
-        <article class="product-card">
+        <article class="product-card product-card--featured">
+          <img
+            class="product-card__image"
+            src="images/product-1.jpg"
+            alt="Товар 1 — краткое описание товара для скринридеров"
+            width="300"
+            height="200"
+            loading="lazy"
+          >
           <h3 class="product-card__title">Товар 1</h3>
           <p class="product-card__description">Краткое описание учебного товара.</p>
           <p class="product-card__price">Цена: 1000 руб.</p>
@@ -69,6 +80,14 @@
           </button>
         </article>
         <article class="product-card">
+          <img
+            class="product-card__image"
+            src="images/product-2.jpg"
+            alt="Товар 2 — краткое описание товара для скринридеров"
+            width="300"
+            height="200"
+            loading="lazy"
+          >
           <h3 class="product-card__title">Товар 2</h3>
           <p class="product-card__description">Краткое описание учебного товара.</p>
           <p class="product-card__price">Цена: 1500 руб.</p>
@@ -76,7 +95,16 @@
             Заказать
           </button>
         </article>
-        <article class="product-card">
+        <article class="product-card product-card--discount">
+          <span class="product-card__badge">Скидка</span>
+          <img
+            class="product-card__image"
+            src="images/product-3.jpg"
+            alt="Товар 3 со скидкой — краткое описание товара для скринридеров"
+            width="300"
+            height="200"
+            loading="lazy"
+          >
           <h3 class="product-card__title">Товар 3</h3>
           <p class="product-card__description">Краткое описание учебного товара.</p>
           <p class="product-card__price">Цена: 2000 руб.</p>
@@ -85,6 +113,47 @@
           </button>
         </article>
       </div>
+    </section>
+
+    <!-- Доработка: блок часто задаваемых вопросов -->
+    <section class="section" id="faq">
+      <h2>Часто задаваемые вопросы</h2>
+      <details class="faq-item">
+        <summary class="faq-item__question">Как оформить заказ?</summary>
+        <div class="faq-item__answer">
+          <p>
+            Нажмите кнопку «Заказать» в карточке товара. Откроется модальное окно
+            с формой заявки. Заполните поля и нажмите «Отправить заявку».
+          </p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-item__question">Какие способы оплаты доступны?</summary>
+        <div class="faq-item__answer">
+          <p>
+            В рамках учебного проекта оплата не производится. Форма заявки
+            имитирует оформление заказа для демонстрации работы форм.
+          </p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-item__question">Как связаться с поддержкой?</summary>
+        <div class="faq-item__answer">
+          <p>
+            Перейдите на страницу «Контакты» или используйте форму обратной связи
+            в подвале главной страницы.
+          </p>
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-item__question">Есть ли доставка?</summary>
+        <div class="faq-item__answer">
+          <p>
+            В рамках учебного проекта доставка не реализована.
+            Эта функция будет добавлена на следующих этапах разработки.
+          </p>
+        </div>
+      </details>
     </section>
 
     <aside class="aside-info">
@@ -98,17 +167,27 @@
   </main>
 
   <footer class="site-footer" id="contacts">
-    <p>&copy; 2026 Учебный проект. Все права защищены.</p>
-    <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    <div class="site-footer__inner">
+      <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+      <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    </div>
   </footer>
 
-  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+  <!-- Модальное окно с улучшенной доступностью -->
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title" aria-describedby="order-dialog-desc">
     <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
-    <form class="order-form" id="order-form" action="#" method="post" novalidate>
-      <input id="selected-product" name="selected-product" type="hidden">
+    <p class="order-dialog__desc" id="order-dialog-desc">
+      Заполните форму ниже для оформления заявки на выбранный товар.
+      Поля, отмеченные звёздочкой, обязательны для заполнения.
+    </p>
+    <form class="order-form" id="order-form" action="#" method="post" novalidate aria-label="Форма оформления заявки">
+      <input id="selected-product" name="selected-product" type="hidden" aria-hidden="true">
 
       <div class="order-form__field">
-        <label class="order-form__label" for="order-name">Имя</label>
+        <label class="order-form__label" for="order-name">
+          Имя <span class="order-form__required" aria-hidden="true">*</span>
+          <span class="visually-hidden">(обязательное поле)</span>
+        </label>
         <input
           class="order-form__input"
           id="order-name"
@@ -118,11 +197,17 @@
           minlength="2"
           autocomplete="given-name"
           required
+          aria-required="true"
+          aria-describedby="order-name-hint"
         >
+        <small class="order-form__hint" id="order-name-hint">Минимум 2 символа</small>
       </div>
 
       <div class="order-form__field">
-        <label class="order-form__label" for="order-email">E-mail</label>
+        <label class="order-form__label" for="order-email">
+          E-mail <span class="order-form__required" aria-hidden="true">*</span>
+          <span class="visually-hidden">(обязательное поле)</span>
+        </label>
         <input
           class="order-form__input"
           id="order-email"
@@ -131,11 +216,17 @@
           placeholder="example@mail.ru"
           autocomplete="email"
           required
+          aria-required="true"
+          aria-describedby="order-email-hint"
         >
+        <small class="order-form__hint" id="order-email-hint">Пример: ivanov@mail.ru</small>
       </div>
 
       <div class="order-form__field">
-        <label class="order-form__label" for="order-phone">Телефон</label>
+        <label class="order-form__label" for="order-phone">
+          Телефон <span class="order-form__required" aria-hidden="true">*</span>
+          <span class="visually-hidden">(обязательное поле)</span>
+        </label>
         <input
           class="order-form__input"
           id="order-phone"
@@ -145,8 +236,10 @@
           placeholder="+7 (900) 000-00-00"
           pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
           required
+          aria-required="true"
+          aria-describedby="order-phone-hint"
         >
-        <small>Формат: +7 (900) 000-00-00</small>
+        <small class="order-form__hint" id="order-phone-hint">Формат: +7 (900) 000-00-00</small>
       </div>
 
       <div class="order-form__field">
@@ -156,12 +249,17 @@
           id="order-date"
           name="date"
           type="date"
+          aria-describedby="order-date-hint"
         >
+        <small class="order-form__hint" id="order-date-hint">Необязательное поле</small>
       </div>
 
       <div class="order-form__field">
-        <label class="order-form__label" for="order-topic">Тема заявки</label>
-        <select class="order-form__select" id="order-topic" name="topic" required>
+        <label class="order-form__label" for="order-topic">
+          Тема заявки <span class="order-form__required" aria-hidden="true">*</span>
+          <span class="visually-hidden">(обязательное поле)</span>
+        </label>
+        <select class="order-form__select" id="order-topic" name="topic" required aria-required="true">
           <option value="">Выберите тему</option>
           <option value="product">Заказ товара</option>
           <option value="consultation">Консультация</option>
@@ -177,19 +275,22 @@
           name="comment"
           rows="4"
           placeholder="Укажите дополнительную информацию"
+          aria-describedby="order-comment-hint"
         ></textarea>
+        <small class="order-form__hint" id="order-comment-hint">Необязательное поле</small>
       </div>
 
       <div class="order-form__field order-form__field--checkbox">
-        <label class="order-form__label">
+        <label class="order-form__label order-form__label--checkbox">
           <input
             class="order-form__input"
             id="order-agreement"
             name="agreement"
             type="checkbox"
             required
+            aria-required="true"
           >
-          Я согласен на обработку данных
+          <span>Я согласен на обработку персональных данных <span class="order-form__required" aria-hidden="true">*</span><span class="visually-hidden">(обязательное поле)</span></span>
         </label>
       </div>
 
@@ -200,8 +301,19 @@
     </form>
   </dialog>
 
-  <p class="success-message" id="success-message" hidden>
-    Форма успешно отправлена!
+  <p class="success-message" id="success-message" hidden role="status" aria-live="polite">
+    Форма успешно отправлена! Ваша заявка принята.
   </p>
+
+  <!-- Доработка: фиксированная кнопка «Наверх» -->
+  <button
+    class="scroll-top-button"
+    id="scroll-top-button"
+    type="button"
+    aria-label="Прокрутить страницу наверх"
+    hidden
+  >
+    ↑ Наверх
+  </button>
 </body>
 </html>
